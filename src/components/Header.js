@@ -6,8 +6,6 @@ function Header() {
     // app context
     const appContext = useContext(AppContext);
 
-    console.log(appContext)
-
     return (
         <header>
            <nav className="navbar navbar-expand-lg bg-light shadow">
