@@ -43,6 +43,11 @@ function AppProvider({children}) {
         })
     }
 
+    // delete product
+    const deleteProduct = (id) => (e) => {
+        dispatch({type: 'DELETE_PRODUCT', payload: id});
+    }
+
     // use effect get products
     useEffect(() => {
         getProducts();
@@ -52,7 +57,8 @@ function AppProvider({children}) {
         <AppContext.Provider 
             value={
                 {
-                    ...state
+                    ...state,
+                    deleteProduct
                 }
             }
         >
