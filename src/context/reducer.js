@@ -3,8 +3,6 @@
 // reducer, params state action
 const reducer = (state, action) => {
 
-    // console.log(state)
-
     // if action type GET PRODUCTS
     if(action.type === 'GET_PRODUCTS_START') {
         return {
@@ -33,6 +31,13 @@ const reducer = (state, action) => {
         }
     }
 
+    // if action type delete product
+    if(action.type === 'DELETE_PRODUCT') {
+        return {
+            ...state,
+            products: state.products.filter((product) => product._id !== action.payload)
+        }
+    }
 
     // return state
     return state;
