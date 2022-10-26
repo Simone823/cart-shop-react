@@ -48,6 +48,16 @@ function AppProvider({children}) {
         dispatch({type: 'DELETE_PRODUCT', payload: id});
     }
 
+    // increment quantity
+    const incrementQuantity = (id) => (e) => {
+        dispatch({type: 'INCREMENT_QUANTITY', payload: id});
+    }
+
+    // decrement quantity
+    const decrementQuantity = (id) => (e) => {
+        dispatch({type: 'DECREMENT_QUANTITY', payload: id});
+    }
+
     // use effect get products
     useEffect(() => {
         getProducts();
@@ -58,7 +68,9 @@ function AppProvider({children}) {
             value={
                 {
                     ...state,
-                    deleteProduct
+                    deleteProduct,
+                    incrementQuantity,
+                    decrementQuantity
                 }
             }
         >

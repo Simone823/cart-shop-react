@@ -3,6 +3,8 @@
 // reducer, params state action
 const reducer = (state, action) => {
 
+    // console.log(action)
+
     // if action type GET PRODUCTS
     if(action.type === 'GET_PRODUCTS_START') {
         return {
@@ -16,7 +18,12 @@ const reducer = (state, action) => {
     if(action.type === 'GET_PRODUCTS_SUCCESS') {
         return {
             ...state,
-            products: action.payload,
+            products: action.payload.map((product) => {
+                    return {
+                        ...product,
+                        quantity: 1
+                    }
+                }),
             isLoading: false,
             isError: false
         }
@@ -36,6 +43,46 @@ const reducer = (state, action) => {
         return {
             ...state,
             products: state.products.filter((product) => product._id !== action.payload)
+        }
+    }
+
+    // if action type increment quantity
+    if(action.type === 'INCREMENT_QUANTITY') {
+        return {
+            ...state,
+            products: state.products.map((product) => {
+                // if product id === action paylod
+                if(product._id === action.payload) {
+                    return {
+                        ...product,
+                        quantity: product.quantity++
+                    }
+                }
+
+                // return product
+                return {
+                    ...product
+                }
+            })
+        }
+    }
+
+    // if action type decrement quantity
+    if(action.type === 'DECREMENT_QUANTITY') {
+        return {
+            ...state,
+            products: state.products.map((product) => {
+                if(product._id === action.payload) {
+                    return {
+                        ...product,
+                        quantity: product.quantity - 1 === 0 ? 1 : product.quantity - 1
+                    }
+                }
+
+                return {
+                    ...product
+                }
+            })
         }
     }
 

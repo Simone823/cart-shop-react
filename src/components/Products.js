@@ -36,12 +36,25 @@ function Products() {
 
                                     {/* product quantity */}
                                     <div className="col-lg-2 d-flex justify-content-center">
+                                        <div className='buttons text-center'>
+                                            {/* btn increment quatity */}
+                                            <button onClick={appContext.decrementQuantity(product._id)} type='button' className='bg-transparent border-0 fs-4'>
+                                                -
+                                            </button>
 
+                                            {/* product quantity */}
+                                            <p className='mb-0'>{product.quantity}</p>
+
+                                            {/* btn increment quatity */}
+                                            <button onClick={appContext.incrementQuantity(product._id)} type='button' className='bg-transparent border-0 fs-4'>
+                                                +
+                                            </button>
+                                        </div>
                                     </div>
 
                                     {/* product price */}
                                     <div className="col-lg-2 d-flex justify-content-center">
-                                        <p className='text-end mb-0'>{product.price} &euro;</p>
+                                        <p className='text-end mb-0'>{(product.price * product.quantity).toFixed(2)} &euro;</p>
                                     </div>
 
                                     {/* btn delete product */}
