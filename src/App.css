@@ -4,3 +4,11 @@
   padding: 0;
   box-sizing: border-box; 
 }
+
+/* cart shop icon item count */
+.cart-shop-item-count {
+  padding: 1px 2px;
+  background-color: brown;
+  color: white;
+  border-radius: 9999px;
+}
