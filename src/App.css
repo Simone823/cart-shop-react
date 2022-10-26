@@ -5,6 +5,46 @@
   box-sizing: border-box; 
 }
 
+/* app */
+.App {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* header */
+header {
+  height: 56px;
+}
+
+/* main */
+main {
+  flex-grow: 1;
+  background-color: azure;
+  overflow-y: auto;
+  padding: 40px 0px;
+}
+
+/* products */
+.wrapper-products {
+  row-gap: 15px;
+  column-gap: 20px;
+}
+
+.product-img {
+  max-width: 150px;
+  aspect-ratio: 1/1;
+}
+
+.product-img img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+
+
 /* cart shop icon item count */
 .cart-shop-item-count {
   padding: 1px 2px;
